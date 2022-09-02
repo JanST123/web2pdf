@@ -11,8 +11,14 @@ const convert2Pdf = (url, res) => {
     // let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
 
     let file = { url };
+
+    fs.appendFileSync(__dirname + '/log.txt', "generating pdf\n");
+
     html_to_pdf.generatePdf(file, options).then(pdfBuffer => {
       // console.log("PDF Buffer:-", pdfBuffer);
+
+      fs.appendFileSync(__dirname + '/log.txt', "buffer\n");
+
       res.writeHead(200, {
         'Content-Type': 'application/pdf; charset=UTF-8',
         'Cache-Control': 'no-cache, no-store, must-revalidate, private',
