@@ -28,11 +28,11 @@ USER pptruser
 
 ENV PORT=8901
 
-RUN mkdir /home/pptruser/app
-COPY . /home/pptruser/app
+#RUN mkdir /home/pptruser/app
+COPY ./startup.sh /
 
-RUN cd /home/pptruser/app && npm ci
+#RUN cd /home/pptruser/app && npm ci
 
 
 
-ENTRYPOINT [ "node", "/home/pptruser/app/server.js" ]
+ENTRYPOINT [ "sh", "/startup.sh" ]
