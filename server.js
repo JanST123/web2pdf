@@ -25,6 +25,7 @@ const convert2Pdf = (url, res) => {
       res.writeHead(200, {
         'Content-Type': 'application/pdf; charset=UTF-8',
         'Cache-Control': 'no-cache, no-store, must-revalidate, private',
+        'Content-Disposition': 'inline'
       });
       res.write(pdfBuffer);
       res.end();
