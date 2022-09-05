@@ -6,18 +6,21 @@ const url = require('node:url');
 
 const convert2Pdf = (url, res) => {
   if (url.match(/^[a-zA-Z]{2,}:\/\/[A-Za-z0-9_\/\-\.\?=%]+/)) {
-    let options = { format: 'A4' };
+    let options = {
+      format: 'A4',
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    };
     // Example of options with args //
     // let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
 
     let file = { url };
 
-    fs.appendFileSync(__dirname + '/log.txt', "generating pdf\n");
+    // fs.appendFileSync(__dirname + '/log.txt', "generating pdf\n");
 
     html_to_pdf.generatePdf(file, options).then(pdfBuffer => {
       // console.log("PDF Buffer:-", pdfBuffer);
 
-      fs.appendFileSync(__dirname + '/log.txt', "buffer\n");
+      // fs.appendFileSync(__dirname + '/log.txt', "buffer\n");
 
       res.writeHead(200, {
         'Content-Type': 'application/pdf; charset=UTF-8',
