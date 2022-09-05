@@ -29,7 +29,7 @@ USER pptruser
 ENV PORT=8901
 
 RUN mkdir /home/pptruser/app
-#COPY ./startup.sh /
+COPY . /home/pptruser/app
 
 RUN cd /home/pptruser/app && npm ci
 
