@@ -116,6 +116,17 @@
         border-color: #697d6a transparent #697d6a transparent;
         animation: lds-hourglass 1.2s infinite;
       }
+
+      p.explanation {
+        color: #fff;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 1.25em;
+        padding: 2em 1em;
+      }
+      p.explanation a {
+        color: #fff;
+      }
       @keyframes lds-hourglass {
         0% {
           transform: rotate(0);
@@ -171,6 +182,10 @@
     </div>
 
     <div class="stage">
+      <p class="explanation">
+        With this tool you can create a PDF document out of any website. Just enter the URL into the input field below, click the &quot;Convert&quot; button and download the PDF document. It's a free and unlimited service.
+        <br />Find the source code on <a href="https://github.com/JanST123/web2pdf" target="_blank">github</a>.
+      </p>
       <div class="form-container">
         <form method="POST" action="/convert" onsubmit="document.getElementById('loader').style.display=''">
           <input type="text" name="url" placeholder="Insert URL of a website to convert to a PDF." pattern="^[a-zA-Z]{2,}:\/\/[A-Za-z0-9_\/\-\.\?=%]+" required />
